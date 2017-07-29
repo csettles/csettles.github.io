@@ -8,7 +8,7 @@ var MAXBALLSPEED = 7;
 var MAXBOUNCEANGLE = 60 * Math.PI / 180;
 
 function preload() {
-	gameFont = loadFont('ArcadeClassic.ttf');
+	gameFont = loadFont('assets/ArcadeClassic.ttf');
 }
 
 function setup() {
