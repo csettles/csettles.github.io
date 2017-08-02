@@ -4,7 +4,7 @@ var score;
 
 var player, ball, ai;
 
-var MAXBALLSPEED = 7;
+var MAXBALLSPEED = 10;
 var MAXBOUNCEANGLE = 60 * Math.PI / 180;
 
 function preload() {
@@ -135,14 +135,15 @@ function ballCollision(p) {
 				var dx = (p.x + p.w / 2) - ball.x; // max value is 1/2 of paddle width (50 px)
 				var normalizedIntersect = dx / (p.w / 2); // range -1 to 1;
 				ball.velY *= -1;
-				if (normalizedIntersect < 0.05 && normalizedIntersect > -0.05){
-					ball.velX = 0;
-				} else if (normalizedIntersect > 0) {
-					ball.velX += 7 * normalizedIntersect;
-				} else {
-					ball.velX += 7 * normalizedIntersect;
-				}
-				ball.velX *= -1;
+				ball.velX = -1 * MAXBALLSPEED * normalizedIntersect;
+				// if (normalizedIntersect < 0.05 && normalizedIntersect > -0.05){
+				// 	ball.velX = 0;
+				// } else if (normalizedIntersect > 0) {
+				// 	ball.velX += 7 * normalizedIntersect;
+				// } else {
+				// 	ball.velX += 7 * normalizedIntersect;
+				// }
+				// ball.velX *= -1;
 			}
 		}
 	}
